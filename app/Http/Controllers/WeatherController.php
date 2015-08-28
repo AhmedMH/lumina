@@ -14,10 +14,10 @@ class WeatherController
      * Get the location of the client using freegeoip API
      */
 
-	protected function getLocation()
+	public function getLocation()
 	{
 		/*Get content from freegeoip API*/
-		$location= file_get_contents('http://freegeoip.net/json/'.$_SERVER['REMOTE_ADDR']);
+		$location= file_get_contents('http://freegeoip.net/json/'/*.$_SERVER['REMOTE_ADDR']*/);
 
 		/*Decode to Json Object*/
 		$location= json_decode($location);

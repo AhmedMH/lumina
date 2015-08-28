@@ -13,6 +13,4 @@
 
 $app->get('/', 'HomeController@index');
 $app->get('weather', 'WeatherController@getWeather');
-/* $app->get('/', function () {
-    return 'Hello World';
-});*/
+$app->get('photo', 'LocationController@getPhoto');

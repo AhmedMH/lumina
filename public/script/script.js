@@ -3,8 +3,12 @@
 /*Decide Day or Night Theme*/
 function applyTheme(sunrise,sunset)
 {
-	if( !(Date.now()/1000<sunset && Date.now()/1000>sunrise))
-	$("#theme").attr("href","/css/bootstrap-night.min.css"); 
+	/*Day Theme*/
+	if((Date.now()/1000<sunset && Date.now()/1000>sunrise))
+		$("#theme").attr("href","/css/bootstrap-day.min.css"); 
+	/*Night Theme*/
+	else
+		$("#theme").attr("href","/css/bootstrap-night.min.css"); 
 }
 
 /*Calculate the weather condition Symbol position*/
@@ -13,7 +17,7 @@ function applyPosition(sunrise,sunset)
 	if( Date.now()/1000<sunset && Date.now()/1000>sunrise)
 	{
 		/*Detect sun position at day time using sunrise ans sunset times*/
-		var position= (Date.now()/1000-sunset) / (sunset-sunrise)*180+180;
+		var position= (Date.now()/1000-sunrise) / (sunset-sunrise)*180+180;
 	}
 	else
 	{
@@ -36,11 +40,40 @@ $(document).ready(function () {
 		    success:function(weather)
 		    {
 		    	var weather= $.parseJSON(weather);
-		    	$("#condition").html(weather.weather[0].main);
-		    	$("#temp").html(weather.main.temp);
+		    	$("#condition").html(weather.weather[0].description);
+		    	$("#temp").html(weather.main.temp+' °C');
 		    	$("#symbol img").attr('src' , 'http://openweathermap.org/img/w/'+weather.weather[0].icon+'.png').fadeIn(500);
 		    	applyTheme(weather.sys.sunrise,weather.sys.sunset);
 		    	applyPosition(weather.sys.sunrise,weather.sys.sunset);
+
+		    },
+		    error:function()
+		    {
+		       	alert('error fetching data');
+
+		    },
+		    complete:function()
+		    {
+		    	$("#feedback").slideUp(1000);
+
+		    }
+
+		});
+
+
+
+
+
+		/*This ajax gets the Country's photo */
+	$.ajax
+		({
+		    type:'get',
+		    url:"photo",
+		    onloading:$("#feedback").slideDown(1000),
+		    async:true,
+		    success:function(photourl)
+		    {
+		    	$("#countryphoto").css('background', 'url('+photourl+')').fadeIn(2000);
 
 		    },
 		    error:function()
