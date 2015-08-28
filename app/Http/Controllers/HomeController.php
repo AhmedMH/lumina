@@ -9,6 +9,8 @@ class HomeController
      * Show the Home Page.
      */
 
+
+
 	public function index()
 	{
 	    return view('home');
