@@ -14,7 +14,7 @@ class LocationController
 	protected static function getIp()
 	{
 		/*Check if development under local enviroment or remote adddress*/
-		$ip=($_SERVER['REMOTE_ADDR']=='127.0.0.1' || '::1')?'':$_SERVER['REMOTE_ADDR'];
+		$ip=($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1')?'':$_SERVER['REMOTE_ADDR'];
 
 		return $ip;
 
