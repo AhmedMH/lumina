@@ -13,4 +13,4 @@
 
 $app->get('/', 'HomeController@index');
 $app->get('weather', 'WeatherController@getWeather');
-$app->get('photo', 'LocationController@getPhoto');
+$app->get('country', 'CountryController@getCountryInfo');

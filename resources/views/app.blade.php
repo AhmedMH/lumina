@@ -8,6 +8,7 @@
 
 	<link id="theme" href="/css/bootstrap-day.min.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
+	<link href="/css/animate.css" rel="stylesheet">
 	
 </head>
 <body>
@@ -34,6 +35,7 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="script/bootstrap.min.js"></script>
+    <script src="script/wow.min.js"></script>
     <script src="script/script.js"></script>
 
 </body>

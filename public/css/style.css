@@ -1,4 +1,4 @@
-	/**
+/**
  * Position icons into circle (SO)
  * http://stackoverflow.com/q/12813573/1397351 
  */
@@ -8,7 +8,7 @@
 	width: 24em;
 	height: 24em;
 	padding: 2.8em; /*= 2em * 1.4 (2em = half the width of an img, 1.4 = sqrt(2))*/
-	border-top: solid 1px;
+	border-top: solid 2px;
 	border-radius: 50%;
 	margin: 1.75em auto 0;
 	padding-top: 8em;
@@ -29,5 +29,14 @@
 	background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    -webkit-transition: background 1000ms ease-in 200ms; /* property duration timing-function delay */
+    -moz-transition: background 1000ms ease-in 200ms;
+    -o-transition: background 1000ms ease-in 200ms;
+    transition: background 1000ms ease-in 200ms;
     height: 350px;
+}
+
+#countryname
+{
+	text-align: center;
 }
