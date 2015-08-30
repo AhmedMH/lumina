@@ -4,7 +4,7 @@
   new WOW().init();
 
   /*This variable decides the time date or night is global and is used by several functions assumes day by default*/
-  dayorNight=1;
+  dayornight=1;
 
 
 /*Detect the time if day returns 1 , if night returns 0*/
@@ -12,10 +12,10 @@ function dayorNight (sunrise,sunset)
 {
 	/*Day time*/
 	if((Date.now()/1000<sunset && Date.now()/1000>sunrise))
-		dayorNight=1;
+		dayornight=1;
 	/*Night time*/
 	else
-		dayorNight=0;
+		dayornight=0;
 }
 
 
@@ -23,7 +23,7 @@ function dayorNight (sunrise,sunset)
 function applyTheme()
 {
 	/*Day Theme*/
-	if(dayorNight==1)
+	if(dayornight==1)
 		$("#theme").attr("href","/css/bootstrap-day.min.css"); 
 	/*Night Theme*/
 	else
@@ -34,7 +34,7 @@ function applyTheme()
 /*Calculate the weather condition Symbol position*/
 function applyPosition(sunrise,sunset)
 {
-	if(dayorNight==1)
+	if(dayornight==1)
 	{
 		/*Detect sun position at day time using sunrise ans sunset times*/
 		var position= (Date.now()/1000-sunrise) / (sunset-sunrise)*180+180;
@@ -64,8 +64,11 @@ function getWeather()
 		    	/*Parse the json weather object*/
 		    	var weather= $.parseJSON(weather);
 
+		    	/*Check if day or night*/
+		    	dayorNight(weather.sys.sunrise,weather.sys.sunset);
+		    	
 		    	/*Fill out HTML elements with weather results*/
-		    	$("#dayornight").html((dayorNight==1)?'Day':'Night');
+		    	$("#dayornight").html((dayornight==1)?'Day':'Night');
 		    	$("#condition").html(weather.weather[0].description);
 		    	$("#temp").html(weather.main.temp+' °C');
 		    	$("#symbol img").attr('src' , 'http://openweathermap.org/img/w/'+weather.weather[0].icon+'.png');
@@ -78,6 +81,8 @@ function getWeather()
 		    	
 		    	/*Add animation*/
 		    	$("#dayornight,#condition,#temp").addClass('bounceInLeft');
+
+
 
 		    	/*Apply theme of day or night*/
 		    	applyTheme();
