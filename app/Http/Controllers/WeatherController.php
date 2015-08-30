@@ -9,8 +9,6 @@ namespace App\Http\Controllers;
 class WeatherController 
 {
 
-	
-
 	 /**
      * Get weather conditions using openweathermap API
      */
@@ -24,7 +22,5 @@ class WeatherController
 
 		return $weather;
 	}
-
-
 
 }

@@ -12,6 +12,7 @@
 	border-radius: 50%;
 	margin: 1.75em auto 0;
 	padding-top: 8em;
+	visibility: none;
 }
 .circle-container a {
 	display: block;
@@ -23,6 +24,11 @@
 	/* 2em = 4em/2 */ /* half the width */
 }
 .circle-container img { display: block; width: 100%; }
+
+#feedback
+{
+	display: none;
+}
 
 #countryphoto
 {

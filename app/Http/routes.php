@@ -11,6 +11,11 @@
 |
 */
 
+/*Home page*/
 $app->get('/', 'HomeController@index');
+
+/*Weather API route*/
 $app->get('weather', 'WeatherController@getWeather');
+
+/*Country API route*/
 $app->get('country', 'CountryController@getCountryInfo');
