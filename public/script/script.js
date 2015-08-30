@@ -24,10 +24,10 @@ function applyTheme()
 {
 	/*Day Theme*/
 	if(dayornight==1)
-		$("#theme").attr("href","/css/bootstrap-day.min.css"); 
+		$("#theme").after('<link id="theme" href="/css/bootstrap-day.min.css" rel="stylesheet">'); 
 	/*Night Theme*/
 	else
-		$("#theme").attr("href","/css/bootstrap-night.min.css"); 
+		$("#theme").after('<link id="theme" href="/css/bootstrap-night.min.css" rel="stylesheet">'); 
 }
 
 
