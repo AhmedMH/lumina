@@ -24,10 +24,13 @@ function applyTheme()
 {
 	/*Day Theme*/
 	if(dayornight==1)
-		$("#theme").after('<link id="theme" href="/css/bootstrap-day.min.css" rel="stylesheet">'); 
+		$("head").append('<link id="theme" href="/css/bootstrap-day.min.css" rel="stylesheet">'); 
 	/*Night Theme*/
 	else
-		$("#theme").after('<link id="theme" href="/css/bootstrap-night.min.css" rel="stylesheet">'); 
+		$("head").append('<link id="theme" href="/css/bootstrap-night.min.css" rel="stylesheet">'); 
+
+	/*remove the old style sheet as the id selector will get the first occurence only*/
+	$("#theme").remove();
 }
 
 
