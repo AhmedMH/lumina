@@ -17,7 +17,7 @@
 						<div class='col-md-6'>
 
 							<!-- Shows the arc curve -->
-							<div class='circle-container wow bounceInUp' style="visibility: none">
+							<div class='circle-container wow bounceInUp' style="visibility: hidden">
 								
 								<!-- States Day or Night time -->
 								<strong id="dayornight" class='wow'></strong>
